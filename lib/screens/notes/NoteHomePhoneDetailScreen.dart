@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:beamer/beamer.dart';
-import 'package:practice12/Pages/notes/addHomePhoneForm.dart';
+import 'package:practice12/screens/notes/addHomePhoneForm.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:practice12/models/HomePhoneModel.dart';
 import 'package:practice12/repository/firestore_service.dart';

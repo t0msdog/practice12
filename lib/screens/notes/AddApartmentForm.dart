@@ -5,7 +5,7 @@ import 'package:practice12/helpers/size_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:practice12/models/ApartmentModel.dart';
 import 'package:practice12/repository/firebase_auth.dart';
-import 'package:practice12/Pages/notes/firebase_storage.dart';
+import 'package:practice12/screens/notes/firebase_storage.dart';
 import 'package:practice12/repository/firestore_service.dart';
 import 'package:practice12/repository/firestore_service.dart';
 import 'package:practice12/widgets/customsnackBar.dart';

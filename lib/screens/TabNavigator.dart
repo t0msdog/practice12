@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:beamer/beamer.dart';
-import 'package:practice12/Pages/DetailsPage.dart';
-import 'package:practice12/Pages/RootPage.dart';
-import 'package:practice12/Pages/notes/NoteHomePhoneDetailPage.dart';
-import 'package:practice12/Pages/notes/NotesPage.dart';
+import 'package:practice12/screens/DetailsScreen.dart';
+import 'package:practice12/screens/RootScreen.dart';
+import 'package:practice12/screens/notes/NoteHomePhoneDetailScreen.dart';
+import 'package:practice12/screens/notes/NotesPage.dart';
 import 'package:practice12/theme/modelTheme.dart';
-import 'package:practice12/Pages/notes/NoteApartmentsPage.dart';
+import 'package:practice12/screens/notes/NoteApartmentsScreen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -80,7 +80,7 @@ class ALocation extends BeamLocation<BeamState> {
           const BeamPage(
             key: ValueKey('/a/notedetails/notehomephonedetails'),
             title: 'Details Note',
-            child: NoteApartmentsPage(
+            child: NoteApartmentsScreen(
                 label: 'Note',
                 detailsApartmentPath: '/a/notedetails/noteapartmentdetails'),
           ),

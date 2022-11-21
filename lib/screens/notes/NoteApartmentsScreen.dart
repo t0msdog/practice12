@@ -2,18 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:beamer/beamer.dart';
-import 'package:practice12/Pages/notes/AddHomePhoneForm.dart';
+import 'package:practice12/models/ApartmentModel.dart';
 import 'package:practice12/models/HomePhoneModel.dart';
 import 'package:practice12/repository/firestore_service.dart';
-import 'package:practice12/Pages/notes/AddHomePhoneForm.dart';
+import 'package:practice12/screens/notes/AddApartmentForm.dart';
+import 'package:practice12/screens/notes/AddHomePhoneForm.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../models/apartmentModel.dart';
-
 /// The details screen for either the A or B screen.
-class NoteApartmentsPage extends StatefulWidget {
-  /// Constructs a [NoteDetailPage].
-  const NoteApartmentsPage({
+class NoteApartmentsScreen extends StatefulWidget {
+  /// Constructs a [NoteDetailScreen].
+  const NoteApartmentsScreen({
     required this.label,
     required this.detailsApartmentPath,
     Key? key,
@@ -26,7 +25,7 @@ class NoteApartmentsPage extends StatefulWidget {
   final String detailsApartmentPath;
 
   @override
-  State<NoteApartmentsPage> createState() => _NoteApartmentsPageState();
+  State<StatefulWidget> createState() => NoteApartmentsScreenState();
 }
 
 //функция преобразования списка снапшотов коллекции в список сообщений
@@ -47,7 +46,6 @@ StreamTransformer<QuerySnapshot<Map<String, dynamic>>, List<ApartmentModel>>
           validPhoto: value['validPhoto'],
         ));
         sink.add(result = List.from(result.reversed));
-        print('Результат $result');
       }
     });
   });
@@ -55,7 +53,7 @@ StreamTransformer<QuerySnapshot<Map<String, dynamic>>, List<ApartmentModel>>
 });
 
 /// The state for DetailsScreen
-class _NoteApartmentsPageState extends State<NoteApartmentsPage> {
+class NoteApartmentsScreenState extends State<NoteApartmentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,20 +82,26 @@ class _NoteApartmentsPageState extends State<NoteApartmentsPage> {
               ),
             );
           }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          DocumentReference ref =
+              FirebaseFirestore.instance.collection('apartments').doc();
+          print('Идентификатор квартиры: ${ref.id}');
+          FirestoreService.addApartment('', '', '', ref.id);
+          setState(() {
+            showDialog(
+                context: context,
+                builder: (context) => AddApartmentsForm(
+                      uid: ref.id,
+                    ));
+          });
+        },
+        //Beamer.of(context).beamToNamed(widget.detailsHomePhonePath),
+        tooltip: 'Добавить',
+        child: const Icon(Icons.add),
+      ),
     );
   }
-}
-
-Widget _emptyMessage() {
-  return Center(
-    child: Container(
-      child: Text(
-        'Квартир нет',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 14.0),
-      ),
-    ),
-  );
 }
 
 Widget _streamChatsWidget(context, List<ApartmentModel> apartmetnsList) {
@@ -139,4 +143,16 @@ Widget _streamChatsWidget(context, List<ApartmentModel> apartmetnsList) {
             ),
           );
         });
+}
+
+Widget _emptyMessage() {
+  return Center(
+    child: Container(
+      child: Text(
+        'Квартир нет',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 14.0),
+      ),
+    ),
+  );
 }

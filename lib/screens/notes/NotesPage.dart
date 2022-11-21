@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:beamer/beamer.dart';
 import 'package:practice12/theme/modelTheme.dart';
 import 'package:practice12/widgets/firstAlertDialog.dart';
-import 'package:practice12/Pages/TabNavigator.dart';
+import 'package:practice12/screens/TabNavigator.dart';
 import 'package:provider/provider.dart';
 
 //Widget for the root/inintial pages if the bottom navigation bar.

@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:practice12/Pages/AuthPage.dart';
-import 'package:practice12/Pages/TabNavigator.dart';
+import 'package:practice12/screens/AuthScreen.dart';
+import 'package:practice12/screens/TabNavigator.dart';
 import 'package:practice12/models/ProfileModel.dart';
 import 'package:practice12/repository/firestore_service.dart';
 import 'package:practice12/theme/modelTheme.dart';

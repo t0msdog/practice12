@@ -7,8 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:practice12/Pages/RegisterAccountPage.dart';
-import 'package:practice12/Pages/TabNavigator.dart';
+import 'package:practice12/screens/RegisterAccountScreen.dart';
+import 'package:practice12/screens/TabNavigator.dart';
 import 'package:practice12/helpers/constant_firebase.dart';
 import 'package:practice12/helpers/message_exception.dart';
 
